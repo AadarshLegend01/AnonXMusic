@@ -3,7 +3,7 @@ from typing import Union
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
-def help_pannel(_, START: Union[bool, int] = None):
+def help_pannel(_, MSTART: Union[bool, int] = None):
     first = [
         InlineKeyboardButton(
             text=_["CLOSEMENU_BUTTON"], callback_data=f"close"
@@ -101,7 +101,7 @@ def help_back_markup(_):
 
 
 def private_help_panel(_):
-    buttons = [
+    mbuttons = [
         [
             InlineKeyboardButton(
                 text="❄ ʜᴇʟᴩ ❄",
@@ -109,4 +109,4 @@ def private_help_panel(_):
             ),
         ],
     ]
-    return buttons
+    return mbuttons
