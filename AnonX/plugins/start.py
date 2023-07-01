@@ -31,7 +31,7 @@ loop = asyncio.get_running_loop()
 
 
 @app.on_message(
-    filters.command(get_command("START_COMMAND"))
+    filters.command(get_command("MSTART_COMMAND"))
     & filters.private
     & ~filters.edited
     & ~BANNED_USERS
@@ -46,7 +46,7 @@ async def start_comm(client, message: Message, _):
             await message.reply_sticker("CAACAgUAAxkBAAJE8GK4EsoLVZC2SW5W5Q-QAkaoN8f_AAL9BQACiy14VGoQxOCDfE1KKQQ")
             return await message.reply_photo(
                        photo=config.START_IMG_URL,
-                       caption=_["help_1"].format(config.SUPPORT_HEHE), reply_markup=keyboard
+                       caption=_["mhelp_1"].format(config.SUPPORT_HEHE), reply_markup=keyboard
             )
         if name[0:4] == "song":
             return await message.reply_text(_["song_2"])
@@ -230,7 +230,7 @@ async def start_comm(client, message: Message, _):
 
 
 @app.on_message(
-    filters.command(get_command("START_COMMAND"))
+    filters.command(get_command("MSTART_COMMAND"))
     & filters.group
     & ~filters.edited
     & ~BANNED_USERS
@@ -269,7 +269,7 @@ async def welcome(client, message: Message):
             if member.id == app.id:
                 chat_type = message.chat.type
                 if chat_type != "supergroup":
-                    await message.reply_text(_["start_6"])
+                    await message.reply_text(_["mstart_6"])
                     return await app.leave_chat(message.chat.id)
                 if chat_id in await blacklisted_chats():
                     await message.reply_text(
