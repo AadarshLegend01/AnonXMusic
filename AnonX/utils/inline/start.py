@@ -6,7 +6,7 @@ import config
 
 
 def start_pannel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
-    buttons = [
+    mbuttons = [
         [
             InlineKeyboardButton(
                 text="ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ",
@@ -23,11 +23,11 @@ def start_pannel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
             ),
         ],
      ]
-    return buttons
+    return mbuttons
 
 
 def private_panel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
-    buttons = [
+    mbuttons = [
         [
             InlineKeyboardButton(
                 text="ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ",
@@ -53,4 +53,4 @@ def private_panel(_, BOT_USERNAME, OWNER: Union[bool, int] = None):
             )
         ],
      ]
-    return buttons
+    return mbuttons
