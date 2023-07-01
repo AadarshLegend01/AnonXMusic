@@ -31,7 +31,7 @@ loop = asyncio.get_running_loop()
 
 
 @app.on_message(
-    filters.command(get_command("MSTART_COMMAND"))
+    filters.command(get_command("mstart"))
     & filters.private
     & ~filters.edited
     & ~BANNED_USERS
@@ -41,7 +41,7 @@ async def start_comm(client, message: Message, _):
     await add_served_user(message.from_user.id)
     if len(message.text.split()) > 1:
         name = message.text.split(None, 1)[1]
-        if name[0:4] == "help":
+        if name[0:4] == "mhelp":
             keyboard = help_pannel(_)
             await message.reply_sticker("CAACAgUAAxkBAAJE8GK4EsoLVZC2SW5W5Q-QAkaoN8f_AAL9BQACiy14VGoQxOCDfE1KKQQ")
             return await message.reply_photo(
@@ -205,19 +205,19 @@ async def start_comm(client, message: Message, _):
                 await message.reply_sticker("CAACAgUAAxkBAAIjTGKPYCq3keRZgNbshxtJ5k7H609OAAIZBgACYAF5VIerYoMcSln8JAQ")
                 await message.reply_photo(
                     photo=config.START_IMG_URL,
-                    caption=_["start_2"].format(
+                    caption=_["mstart_2"].format(
                         config.MUSIC_BOT_NAME
                     ),
                     reply_markup=InlineKeyboardMarkup(out),
                 )
             except:
                 await message.reply_text(
-                    _["start_2"].format(config.MUSIC_BOT_NAME),
+                    _["mstart_2"].format(config.MUSIC_BOT_NAME),
                     reply_markup=InlineKeyboardMarkup(out),
                 )
         else:
             await message.reply_text(
-                _["start_2"].format(config.MUSIC_BOT_NAME),
+                _["mstart_2"].format(config.MUSIC_BOT_NAME),
                 reply_markup=InlineKeyboardMarkup(out),
             )
         if await is_on_off(config.LOG):
@@ -230,7 +230,7 @@ async def start_comm(client, message: Message, _):
 
 
 @app.on_message(
-    filters.command(get_command("MSTART_COMMAND"))
+    filters.command(get_command("mstart"))
     & filters.group
     & ~filters.edited
     & ~BANNED_USERS
@@ -241,7 +241,7 @@ async def testbot(client, message: Message, _):
     out = start_pannel(_, app.username, OWNER)
     return await message.reply_photo(
                photo=config.START_IMG_URL,
-               caption=_["start_1"].format(
+               caption=_["mstart_1"].format(
             message.chat.title, config.MUSIC_BOT_NAME
         ),
         reply_markup=InlineKeyboardMarkup(out),
@@ -273,7 +273,7 @@ async def welcome(client, message: Message):
                     return await app.leave_chat(message.chat.id)
                 if chat_id in await blacklisted_chats():
                     await message.reply_text(
-                        _["start_7"].format(
+                        _["mmstart_7"].format(
                             f"https://t.me/{app.username}?start=sudolist"
                         )
                     )
@@ -283,7 +283,7 @@ async def welcome(client, message: Message):
                 out = start_pannel(_, app.username, OWNER)
                 await message.reply_photo(
                     photo=config.START_IMG_URL,
-                    caption=_["start_3"].format(
+                    caption=_["mstart_3"].format(
                         config.MUSIC_BOT_NAME,
                         userbot.username,
                         userbot.id,
@@ -292,13 +292,13 @@ async def welcome(client, message: Message):
                 )
             if member.id in config.OWNER_ID:
                 return await message.reply_text(
-                    _["start_4"].format(
+                    _["mstart_4"].format(
                         config.MUSIC_BOT_NAME, member.mention
                     )
                 )
             if member.id in SUDOERS:
                 return await message.reply_text(
-                    _["start_5"].format(
+                    _["mstart_5"].format(
                         config.MUSIC_BOT_NAME, member.mention
                     )
                 )
