@@ -16,7 +16,7 @@ from AnonX.utils.inline.help import (help_back_markup,
                                           private_help_panel)
 
 ### Command
-HELP_COMMAND = get_command("HELP_COMMAND")
+HELP_COMMAND = get_command("mhelp")
 
 
 @app.on_message(
@@ -43,11 +43,11 @@ async def helper_private(
         keyboard = help_pannel(_, True)
         if update.message.photo:
             await update.edit_message_text(
-                _["help_1"].format(config.SUPPORT_HEHE), reply_markup=keyboard
+                _["mhelp_1"].format(config.SUPPORT_HEHE), reply_markup=keyboard
             )
         else:
             await update.edit_message_text(
-                _["help_1"].format(config.SUPPORT_HEHE), reply_markup=keyboard
+                _["mhelp_1"].format(config.SUPPORT_HEHE), reply_markup=keyboard
             )
     else:
         chat_id = update.chat.id
@@ -62,11 +62,11 @@ async def helper_private(
         await update.reply_sticker("CAACAgUAAxkBAAIjVmKPYTFByKZlCo9d8mUv8QVAJEw7AAL9BQACiy14VGoQxOCDfE1KJAQ")
         await update.reply_photo(
             photo=config.START_IMG_URL,
-            caption=_["help_1"].format(config.SUPPORT_HEHE), reply_markup=keyboard)
+            caption=_["mhelp_1"].format(config.SUPPORT_HEHE), reply_markup=keyboard)
 
 
 @app.on_message(
-    filters.command(HELP_COMMAND)
+    filters.command("mhelp")
     & filters.group
     & ~filters.edited
     & ~BANNED_USERS
@@ -76,7 +76,7 @@ async def help_com_group(client, message: Message, _):
     keyboard = private_help_panel(_)
     await message.reply_photo(
         photo=config.START_IMG_URL,
-        caption=_["help_2"], reply_markup=InlineKeyboardMarkup(keyboard)
+        caption=_["mhelp_2"], reply_markup=InlineKeyboardMarkup(keyboard)
     )
 
 
@@ -93,7 +93,7 @@ async def helper_cb(client, CallbackQuery, _):
             )
         else:
             await CallbackQuery.edit_message_text(
-                helpers.HELP_9, reply_markup=keyboard
+                helpers.MHELP_9, reply_markup=keyboard
             )
             return await CallbackQuery.answer()
     try:
@@ -102,45 +102,45 @@ async def helper_cb(client, CallbackQuery, _):
         pass
     if cb == "hb1":
         await CallbackQuery.edit_message_text(
-            helpers.HELP_1, reply_markup=keyboard
+            helpers.MHELP_1, reply_markup=keyboard
         )
     elif cb == "hb2":
         await CallbackQuery.edit_message_text(
-            helpers.HELP_2, reply_markup=keyboard
+            helpers.MHELP_2, reply_markup=keyboard
         )
     elif cb == "hb3":
         await CallbackQuery.edit_message_text(
-            helpers.HELP_3, reply_markup=keyboard
+            helpers.MHELP_3, reply_markup=keyboard
         )
     elif cb == "hb4":
         await CallbackQuery.edit_message_text(
-            helpers.HELP_4, reply_markup=keyboard
+            helpers.MHELP_4, reply_markup=keyboard
         )
     elif cb == "hb5":
         await CallbackQuery.edit_message_text(
-            helpers.HELP_5, reply_markup=keyboard
+            helpers.MHELP_5, reply_markup=keyboard
         )
     elif cb == "hb6":
         await CallbackQuery.edit_message_text(
-            helpers.HELP_6, reply_markup=keyboard
+            helpers.MHELP_6, reply_markup=keyboard
         )
     elif cb == "hb7":
         await CallbackQuery.edit_message_text(
-            helpers.HELP_7, reply_markup=keyboard
+            helpers.MHELP_7, reply_markup=keyboard
         )
     elif cb == "hb8":
         await CallbackQuery.edit_message_text(
-            helpers.HELP_8, reply_markup=keyboard
+            helpers.MHELP_8, reply_markup=keyboard
         )
     elif cb == "hb10":
         await CallbackQuery.edit_message_text(
-            helpers.HELP_10, reply_markup=keyboard
+            helpers.MHELP_10, reply_markup=keyboard
         )
     elif cb == "hb11":
         await CallbackQuery.edit_message_text(
-            helpers.HELP_11, reply_markup=keyboard
+            helpers.MHELP_11, reply_markup=keyboard
         )
     elif cb == "hb12":
         await CallbackQuery.edit_message_text(
-            helpers.HELP_12, reply_markup=keyboard
+            helpers.MHELP_12, reply_markup=keyboard
         )
